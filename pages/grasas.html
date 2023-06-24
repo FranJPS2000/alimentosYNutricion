@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grasas</title>
+    <script src="https://kit.fontawesome.com/596d630781.js" crossorigin="anonymous"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -36,7 +37,65 @@
         </ul>
       </nav>
 
+      <nav class="nav flex-column nav-mobile fixed-top collapse collapse-horizontal" id="nav-collapse">
+        <ul class="m-0 p-0">
+          <li class="py-2"><a href="../index.html">
+            <div class="row d-flex justify-content-center">
+              <div class="col-1">
+                <i class="fa-solid fa-house fa-bounce"></i>
+              </div>
+              <div class="col-3">
+                Inicio
+              </div>
+            </div>
+          </a></li>
+          <li class="py-2"><a href="proteinas.html">
+            <div class="row d-flex justify-content-center">
+              <div class="col-1">
+                <i class="fa-solid fa-egg fa-bounce"></i>
+              </div>
+              <div class="col-3">
+                Proteínas
+              </div>
+            </div>
+          </a></li>
+          <li class="py-2"><a href="carbohidratos.html">
+            <div class="row d-flex justify-content-center">
+              <div class="col-1">
+                <i class="fa-solid fa-bread-slice fa-bounce"></i>
+              </div>
+              <div class="col-3">
+                Carbohidratos
+              </div>
+            </div>
+          </a></li>
+          <li class="py-2"><a class="seleccionado-mobile" href="">
+            <div class="row d-flex justify-content-center">
+              <div class="col-1">
+                <i class="fas fa-cheese fa-bounce"></i>
+              </div>
+              <div class="col-3">
+                Grasas
+              </div>
+            </div>
+          </a></li>
+          <li class="py-2"><a href="contacto.html">
+            <div class="row d-flex justify-content-center">
+              <div class="col-1">
+                <i class="fas fa-phone fa-shake"></i>
+              </div>
+              <div class="col-3">
+                Contacto
+              </div>
+            </div>
+          </a></li>
+        </ul>
+      </nav>
+
       <div id="titulo">
+        <a class="float-start p-3 nav-bar" href="#nav-collapse" data-bs-toggle="collapse" >
+          <i class="fa fa-bars fs-1"></i>
+        </a>
         <h1 class="tituloMacros py-3">Grasas</h1>
       </div>
 
@@ -198,7 +257,7 @@
       </div>
     </section>
 
-    <footer class="mt-2">
+    <footer class="mt-2" id="abajo">
       <div class="d-flex justify-content-center">
         <h2 class="fs-4 col-3 text-center">¡Siguenos!</h2>
       </div>

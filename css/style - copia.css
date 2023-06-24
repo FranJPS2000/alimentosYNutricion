@@ -4,40 +4,6 @@ body {
     font-family: 'Karla', sans-serif;
 }
 
-.fa-cheese{
-    color: gold;
-    -webkit-text-stroke: 2px black;
-}
-
-.fa-bread-slice{
-    color: chocolate;
-    -webkit-text-stroke: 2px black;
-}
-
-.fa-egg{
-    color: beige;
-    -webkit-text-stroke: 2px black;
-}
-
-.nav-bar{
-    display: none;
-    text-decoration: none;
-}
-
-.nav-mobile{
-    background-color: #b9c17c;
-    padding-top: 15%;
-    padding-bottom: 5%;
-    display: none;
-    list-style: none;
-}
-
-.nav-mobile a{
-    color: black;
-    text-decoration: none;
-    font-size: 4vmin;
-}
-
 #menu {
     text-align: center;
     list-style: none;
@@ -146,12 +112,6 @@ h1 {
 .tablaProteinaVegetal td { 
     background-color: white;
     text-align: center;
-}
-
-.videoProteinas{
-    display: flex;
-    justify-content: space-evenly;
-    height: 30vmin;
 }
 
 .imagenCarbohidratos {
@@ -284,52 +244,5 @@ iframe{
         max-width: 40vw;
         margin: 10px;
         border: 3px dashed purple;
-    }
-
-    .nav-bar{
-        display: flex;
-        position: fixed;
-        z-index: 9999;
-    }
-
-    #menu{
-        display: none;
-    }
-
-    .nav-mobile{
-        display: block;
-    }
-
-    .tablaProteinaAnimal{ 
-        font-size: 4vmin;
-    }
-
-    .tablaProteinaVegetal{ 
-        font-size: 4vmin;
-    }
-
-    p {
-        font-size: 1.6vmax
-    }
-
-    .imagenProteinas {
-        width: 80%;
-        margin-top: 0%;
-        margin-left: 0%;
-        margin-right: 0%;
-    }
-
-    .videoProteinas{
-        display: block;
-        height: auto;
-        margin-left: 25%;
-    }
-
-    .tablaCarbohidratosSimples{
-        font-size: 1vmax;
-    }
-
-    .tablaCarbohidratosComplejos{
-        font-size: 1vmax;
     }
 }
