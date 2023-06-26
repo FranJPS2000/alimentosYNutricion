@@ -1,0 +1,12 @@
+$colorSecundario: #b9c17c;
+$colorTablasMacros: #c3bbf6;
+
+.botonContacto{
+    background-color: beige;
+    border: 1px dashed black;
+
+    &:hover{
+        background-color: $colorSecundario;
+        border: 1px solid black;
+    }
+}

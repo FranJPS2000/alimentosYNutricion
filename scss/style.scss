@@ -1,8 +1,10 @@
 $colorSecundario: #b9c17c;
 $colorTablasMacros: #c3bbf6;
 
+@import "proteinas.scss";
 @import "carbohidratos.scss";
-@import "proteinas.scss"
+@import "grasas.scss";
+@import "contacto.scss";
 @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
 body {
@@ -63,38 +65,10 @@ h1 {
     text-decoration: underline;
 }
 
-.tablaGrasas {
-    th {
-        background-color: $colorTablasMacros;
-        text-align: center;
-    } 
-    
-    td { 
-        background-color: white;
-        text-align: center;
-    }
-}
-
 p { 
     text-align: justify;
     font-weight: normal;
     font-size: 2.2vmin;
-}
-
-.linkImagenes{
-    a {
-        font-size: 2.8vmin;
-        border: 0.1vmin solid black;
-        border-radius: 10%;
-        padding: 1%;
-        background-color: #dde2b7;
-        text-decoration: none;
-        color: black;
-
-        &:hover{
-            background-color: #f6a59b;
-        }
-    }
 }
 
 h3{
@@ -111,22 +85,6 @@ iframe{
 
 .imagenFooter{
     max-width: 5%;
-}
-
-.tituloImagenCarrusel{
-    padding: 5px;
-    background-color: white;
-    border: 1px dashed black;
-}
-
-.botonContacto{
-    background-color: beige;
-    border: 1px dashed black;
-
-    &:hover{
-        background-color: $colorSecundario;
-        border: 1px solid black;
-    }
 }
 
 .grid-main{

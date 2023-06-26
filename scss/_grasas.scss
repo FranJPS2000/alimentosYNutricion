@@ -1,0 +1,14 @@
+$colorSecundario: #b9c17c;
+$colorTablasMacros: #c3bbf6;
+
+.tablaGrasas {
+    th {
+        background-color: $colorTablasMacros;
+        text-align: center;
+    } 
+    
+    td { 
+        background-color: white;
+        text-align: center;
+    }
+}
