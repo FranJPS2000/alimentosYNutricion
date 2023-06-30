@@ -49,6 +49,12 @@
   text-align: center;
 }
 
+.videoProteinas {
+  display: flex;
+  justify-content: space-evenly;
+  height: 30vmin;
+}
+
 .imagenCarbohidratos {
   transition-duration: 0.5s;
 }
@@ -98,9 +104,65 @@
   border: 1px solid black;
 }
 
+.animate__animated {
+  animation: 6s linear infinite;
+}
+
+.linksImagenes a {
+  font-size: 2.8vmin;
+  border: 0.1vmin solid black;
+  border-radius: 10%;
+  padding: 1%;
+  background-color: #dde2b7;
+  text-decoration: none;
+  color: black;
+}
+.linksImagenes a:hover {
+  background-color: #f6a59b;
+}
+
 body {
   background-color: #eaeaea;
+  color: black;
   font-family: "Karla", sans-serif;
+}
+
+.slideAnimation, section, main {
+  animation: slideInFromRight 1s ease-in-out;
+}
+
+.fa-cheese {
+  color: gold;
+  -webkit-text-stroke: 2px black;
+}
+
+.fa-bread-slice {
+  color: chocolate;
+  -webkit-text-stroke: 2px black;
+}
+
+.fa-egg {
+  color: beige;
+  -webkit-text-stroke: 2px black;
+}
+
+.nav-bar {
+  display: none;
+  text-decoration: none;
+}
+
+.nav-mobile {
+  background-color: #b9c17c;
+  padding-top: 15%;
+  padding-bottom: 5%;
+  display: none;
+  list-style: none;
+}
+
+.nav-mobile a {
+  color: black;
+  text-decoration: none;
+  font-size: 4vmin;
 }
 
 #menu {
@@ -132,7 +194,6 @@ body {
 
 h1 {
   text-align: center;
-  background-color: #b9c17c;
   margin-top: 0px;
   padding: 10px;
 }
@@ -144,9 +205,22 @@ h1 {
   margin-left: 10%;
 }
 
-.tituloMacros {
+.tituloInicio {
+  background: linear-gradient(to right, #e5d0a1, #b9c17c, #f7f4bd, #e5d0a1, #b9c17c, #f7f4bd, #e5d0a1);
+  background-size: 200% auto;
+  animation: gradientAnimationMixin(#e5d0a1, #b9c17c, #f7f4bd, #e5d0a1, #b9c17c, #f7f4bd, #e5d0a1) 6s linear infinite;
   text-align: center;
-  background-color: #f6a59b;
+  margin-top: 0px;
+  padding: 10px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.tituloMacros {
+  background: linear-gradient(to right, #f6a59b, #c3bbf6, #b5aaff, #f6a59b, #c3bbf6, #b5aaff, #f6a59b);
+  background-size: 200% auto;
+  animation: gradientAnimationMixin(#f6a59b, #c3bbf6, #b5aaff, #f6a59b, #c3bbf6, #b5aaff, #f6a59b) 6s linear infinite;
+  text-align: center;
   margin-top: 0px;
   padding: 10px;
   font-weight: bold;
@@ -212,6 +286,51 @@ iframe {
     max-width: 40vw;
     margin: 10px;
     border: 3px dashed purple;
+  }
+  .nav-bar {
+    display: flex;
+    position: fixed;
+    z-index: 9999;
+  }
+  #menu {
+    display: none;
+  }
+  .nav-mobile {
+    display: block;
+  }
+  .tablaProteinaAnimal {
+    font-size: 4vmin;
+  }
+  .tablaProteinaVegetal {
+    font-size: 4vmin;
+  }
+  p {
+    font-size: 1.6vmax;
+  }
+  .imagenProteinas {
+    width: 80%;
+    margin-top: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+  .videoProteinas {
+    display: block;
+    height: auto;
+    margin-left: 25%;
+  }
+  .tablaCarbohidratosSimples {
+    font-size: 1vmax;
+  }
+  .tablaCarbohidratosComplejos {
+    font-size: 1vmax;
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
