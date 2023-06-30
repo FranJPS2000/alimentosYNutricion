@@ -229,7 +229,10 @@ iframe{
     }
 
     p {
-        font-size: 1.6vmax
+        font-size: 1.6vmax;
+        overflow: hidden;
+        max-height: 250px;
+        overflow-y: scroll;
     }
 
     .imagenProteinas {
