@@ -5,9 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Obten más información asociada a alimentos y nutrición">
-  <meta name="keywords" content="instagram, contacto, mensaje, opinion, ubicacion, playlist">
-  <title>Contacto</title>
+  <title>Herramientas</title>
   <script src="https://kit.fontawesome.com/596d630781.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
@@ -27,8 +25,8 @@
         <li><a href="proteinas.html">Proteínas</a></li>
         <li><a href="carbohidratos.html">Carbohidratos</a></li>
         <li><a href="grasas.html">Grasas</a></li>
-        <li><a class="seleccionado" href="">Contacto</a></li>
-        <li><a href="herramientas.html">Herramientas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a class="seleccionado" href="">Herramientas</a></li>
       </ul>
     </nav>
 
@@ -40,9 +38,7 @@
               <div class="col-1">
                 <i class="fa-solid fa-house fa-bounce"></i>
               </div>
-              <p class="col-3">
-                Inicio
-              </p>
+              <p class="col-3">Inicio</p>
             </div>
           </a>
         </li>
@@ -52,9 +48,7 @@
               <div class="col-1">
                 <i class="fa-solid fa-egg fa-bounce"></i>
               </div>
-              <p class="col-3">
-                Proteínas
-              </p>
+              <p class="col-3">Proteínas</p>
             </div>
           </a>
         </li>
@@ -64,9 +58,7 @@
               <div class="col-1">
                 <i class="fa-solid fa-bread-slice fa-bounce"></i>
               </div>
-              <p class="col-3">
-                Carbohidratos
-              </p>
+              <p class="col-3">Carbohidratos</p>
             </div>
           </a>
         </li>
@@ -76,9 +68,7 @@
               <div class="col-1">
                 <i class="fas fa-cheese fa-bounce"></i>
               </div>
-              <p class="col-3">
-                Grasas
-              </p>
+              <p class="col-3">Grasas</p>
             </div>
           </a>
         </li>
@@ -88,9 +78,7 @@
               <div class="col-1">
                 <i class="fas fa-phone fa-shake"></i>
               </div>
-              <p class="col-3">
-                Contacto
-              </p>
+              <p class="col-3">Contacto</p>
             </div>
           </a>
         </li>
@@ -111,69 +99,51 @@
       <a class="float-start p-3 nav-bar" href="#nav-collapse" data-bs-toggle="collapse">
         <i class="fa fa-bars fs-1"></i>
       </a>
-      <h1 class="tituloMacros py-3">Contacto</h1>
+      <h1 class="tituloMacros py-3">Herramientas</h1>
     </div>
-
   </header>
   <main>
-    <h2 class="text-center animate__animated animate__pulse">¡Dejanos tu mensaje!</h2>
-    <form>
-      <div class="row d-flex justify-content-evenly">
-        <div class="col-10 col-lg-3">
-          <label class="form-label" for="nombre">Nombre: </label>
-          <input class="form-control" type="text" id="idNombre" name="nombre" />
-        </div>
-
-        <div class="col-10 col-lg-3">
-          <label class="form-label" for="email">Correo electrónico: </label>
-          <input class="form-control" type="email" name="email" id="idEmail" />
-        </div>
-
-        <div class="col-10 col-lg-3">
-          <label class="form-label" for="telefono">Teléfono (+56): </label>
-          <input class="form-control" type="number" name="telefono" id="idTelefono" />
-        </div>
-      </div>
-
-      <div class="row d-flex justify-content-center mt-2">
-        <div class="col-10 col-lg-3">
-          <label class="form-label" for="opinion">Tu opinión: </label>
-          <textarea class="form-control" name="opinion" id="idOpinion" cols="30" rows="5"></textarea>
-        </div>
-      </div>
-
-      <div class="d-flex justify-content-center mt-2">
-        <input class="btn botonContacto" type="reset" value="Borrar datos" />
-        <input class=" ms-3 btn botonContacto" type="submit" value="Enviar datos" />
-      </div>
-    </form>
+    <div class="d-flex justify-content-center align-items-start">
+      <p class="fs-4 me-3">Promediar datos:</p>
+      <button class="btn btn-herramienta" onclick="promediarDatos()">
+        Promediar
+      </button>
+    </div>
+    <div class="d-flex justify-content-center align-items-start">
+      <p class="fs-4 me-3">Estimar altura:</p>
+      <button class="btn btn-herramienta me-3" onclick="estimarAltura('HOMBRE')">
+        Altura Hombre
+      </button>
+      <button class="btn btn-herramienta" onclick="estimarAltura('MUJER')">
+        Altura Mujer
+      </button>
+    </div>
+    <div class="d-flex justify-content-center align-items-start">
+      <p class="fs-4 me-3">Calcular IMC:</p>
+      <button class="btn btn-herramienta" onclick="calcularIMC()">
+        Calcular
+      </button>
+    </div>
   </main>
-
-  <section class="row d-flex justify-content-center align-items-center mt-3">
-    <iframe class="col-10 col-lg-2 mb-2"
-      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4226344.048658864!2d-69.86485061515847!3d-34.81017537296996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2scl!4v1684185147774!5m2!1ses!2scl"
-      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <iframe class="col-10 col-lg-2"
-      src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8kP0ioXjxIA?utm_source=generator&theme=0" frameborder="0"
-      allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy"></iframe>
-  </section>
 
   <footer class="mt-2">
     <div class="d-flex justify-content-center">
-      <h2 class="fs-4 col-3 text-center animate__animated animate__heartBeat">¡Siguenos!</h2>
+      <h2 class="fs-4 col-3 text-center animate__animated animate__heartBeat">
+        ¡Siguenos!
+      </h2>
     </div>
     <div class="d-flex justify-content-center">
       <div class="imagenFooter">
         <a href="https://www.instagram.com/pxnchauwu/" target="_blank">
           <img class="img-fluid" src="../images/instagram.png" alt="Instagram" />
+        </a>
       </div>
-      </a>
     </div>
     <div class="d-flex justify-content-center">
       <a href="#titulo">Volver arriba</a>
     </div>
   </footer>
+  <script src="../scripts/herramientas.js"></script>
 </body>
 
 </html>
