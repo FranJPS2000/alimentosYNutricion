@@ -285,6 +285,11 @@ iframe {
   border: 1px solid black;
 }
 
+.tablaAlimentos{
+  overflow-y: auto;
+  height:500px;
+}
+
 @media all and (max-width: 780px) {
   .grid-main {
     grid-template-columns: 1fr;

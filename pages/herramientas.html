@@ -104,23 +104,14 @@
   </header>
   <main>
     <div class="d-flex justify-content-center align-items-start">
-      <p class="fs-4 me-3">Promediar datos:</p>
-      <button class="btn btn-herramienta" onclick="promediarDatos()">
-        Promediar
-      </button>
-    </div>
-    <div class="d-flex justify-content-center align-items-start">
       <p class="fs-4 me-3">Estimar altura:</p>
-      <button class="btn btn-herramienta me-3" onclick="estimarAltura('HOMBRE')">
-        Altura Hombre
-      </button>
-      <button class="btn btn-herramienta" onclick="estimarAltura('MUJER')">
-        Altura Mujer
+      <button class="btn btn-herramienta me-3" data-bs-toggle="modal" data-bs-target="#modalAltura">
+        Calcular
       </button>
     </div>
     <div class="d-flex justify-content-center align-items-start">
       <p class="fs-4 me-3">Calcular IMC:</p>
-      <button class="btn btn-herramienta" onclick="calcularIMC()">
+      <button class="btn btn-herramienta" data-bs-toggle="modal" data-bs-target="#modalIMC">
         Calcular
       </button>
     </div>
@@ -144,6 +135,69 @@
     </div>
   </footer>
   <script src="../scripts/herramientas.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
+
+<div class="modal fade" id="modalIMC" tabindex="-1" aria-labelledby="modalIMC" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalIMC">Calcular IMC</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="altura" placeholder="Ingresar altura en metros">
+          <span class="input-group-text"><i class="fa-solid fa-person-arrow-up-from-line"></i></span>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="peso" placeholder="Ingresar peso en kilogramos">
+          <span class="input-group-text"><i class="fa-solid fa-scale-unbalanced"></i></span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="calcularIMC()">Calcular</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalAltura" tabindex="-1" aria-labelledby="modalAltura" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalAltura">Estimar altura</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="radioButtonSexo" id="hombre" checked>
+          <label class="form-check-label" for="hombre">
+            Hombre
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="radioButtonSexo" id="mujer">
+          <label class="form-check-label" for="mujer">
+            Mujer
+          </label>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="alturaPadre" placeholder="Ingresar altura en centímetros">
+          <span class="input-group-text"><i class="fa-solid fa-person-arrow-up-from-line"></i> Altura Padre</span>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="alturaMadre" placeholder="Ingresar altura en centímetros">
+          <span class="input-group-text"><i class="fa-solid fa-person-arrow-up-from-line"></i> Altura Madre</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="estimarAltura()">Calcular</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
