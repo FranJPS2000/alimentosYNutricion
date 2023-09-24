@@ -122,20 +122,22 @@
     <button class="btn btn-primary col-2" onclick="inicializarLista()">Inicializar lista de alimentos</button>
     <button class="btn btn-success col-1 mx-3" data-bs-toggle="modal" data-bs-target="#modalCrear">Agregar alimento</button>
     <div class="input-group mb-3 w-25">
-      <input type="text" id="buscador" class="form-control" placeholder="Buscar por nombre o categoria" onkeyup="filtrarTabla(this.value)">
+      <input type="text" id="buscador" class="form-control" placeholder="Buscar por nombre" onkeyup="filtrarTabla(this.value)">
       <span class="input-group-text" id="basic-addon2">
         <i class="fa-solid fa-magnifying-glass"></i>
       </span>
     </div>
   </div>
   <div class="m-4 d-flex justify-content-center">
-    <div class="col-6 tablaAlimentos">
+    <div class="col-8 tablaAlimentos">
       <table id="tablaAlimentos" class="text-center table">
         <thead>
             <tr>
               <th>Nombre</th>
-              <th>Categoria</th>
-              <th>Cantidad (100g)</th>
+              <th>Calorías</th>
+              <th>Grasas totales</th>
+              <th>Proteina</th>
+              <th>Carbohidratos</th>
               <th>Acciones</th>
             </tr>
         </thead>
@@ -220,12 +222,20 @@
           <span class="input-group-text"><i class="fa-solid fa-drumstick-bite"></i></span>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="categoriaNuevo" placeholder="Ingresar categoria del alimento (proteina, grasa, etc)">
+          <input type="text" class="form-control" id="caloriasNuevo" placeholder="Ingresar calorias">
           <span class="input-group-text"><i class="fa-solid fa-utensils"></i></span>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="cantidadNuevo" placeholder="Ingresar cantidad del alimento según la categoría">
-          <span class="input-group-text"><i class="fa-solid fa-scale-unbalanced"></i></span>
+          <input type="text" class="form-control" id="proteinasNuevo" placeholder="Ingresar proteinas">
+          <span class="input-group-text"><i class="fa-solid fa-utensils"></i></span>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="carbohidratosNuevo" placeholder="Ingresar carbohidratos">
+          <span class="input-group-text"><i class="fa-solid fa-utensils"></i></span>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="grasasNuevo" placeholder="Ingresar grasas">
+          <span class="input-group-text"><i class="fa-solid fa-utensils"></i></span>
         </div>
       </div>
       <div class="modal-footer">

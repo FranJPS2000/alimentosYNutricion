@@ -2,94 +2,10 @@ var listaAlimentos = [];
 var buscador = document.getElementById("buscador");
 actualizarLista();
 
-function inicializarLista(){
-    let lista = [
-        {
-            "nombre" : "Posta rosada",
-            "categoria": "Proteina",
-            "cantidad": 22
-        },
-        {
-            "nombre" : "Pechuga de pollo",
-            "categoria": "Proteina",
-            "cantidad": 21
-        },
-        {
-            "nombre" : "Pechuga de pavo",
-            "categoria": "Proteina",
-            "cantidad": 21
-        },
-        {
-            "nombre" : "Soja",
-            "categoria": "Proteina",
-            "cantidad": 38
-        },
-        {
-            "nombre" : "Semillas de calabaza",
-            "categoria": "Proteina",
-            "cantidad": 30
-        },
-        {
-            "nombre" : "Azúcar de mesa",
-            "categoria": "Carbohidrato",
-            "cantidad": 100
-        },
-        {
-            "nombre" : "Manjar",
-            "categoria": "Carbohidrato",
-            "cantidad": 54
-        },
-        {
-            "nombre" : "Galletas",
-            "categoria": "Carbohidrato",
-            "cantidad": 65
-        },
-        {
-            "nombre" : "Avena",
-            "categoria": "Carbohidrato",
-            "cantidad": 68
-        },
-        {
-            "nombre" : "Arroz",
-            "categoria": "Carbohidrato",
-            "cantidad": 76
-        },
-        {
-            "nombre" : "Spaghetti",
-            "categoria": "Carbohidrato",
-            "cantidad": 75
-        },
-        {
-            "nombre" : "Mantequilla",
-            "categoria": "Grasas",
-            "cantidad": 83
-        },
-        {
-            "nombre" : "Aceite",
-            "categoria": "Grasas",
-            "cantidad": 100
-        },
-        {
-            "nombre" : "Palta/Aguacate",
-            "categoria": "Grasas",
-            "cantidad": 15
-        },
-        {
-            "nombre" : "Manteca de cerdo",
-            "categoria": "Grasas",
-            "cantidad": 100
-        },
-        {
-            "nombre" : "Queso",
-            "categoria": "Grasas",
-            "cantidad": 26
-        },
-        {
-            "nombre" : "Crema de leche",
-            "categoria": "Grasas",
-            "cantidad": 37
-        },
-    ];
+async function inicializarLista() {
+    var lista = await obtenerListaAlimentos();
+
+    console.log(lista)
 
     localStorage.setItem("listaAlimentos", JSON.stringify(lista));
     actualizarLista();
@@ -101,17 +17,17 @@ function inicializarLista(){
     });
 }
 
-function actualizarLista(){
+function actualizarLista() {
     listaLocalStorage = localStorage.getItem('listaAlimentos');
-    if(listaLocalStorage){
+    if (listaLocalStorage) {
         listaAlimentos = JSON.parse(listaLocalStorage);
         actualizarTabla(listaAlimentos);
-    }else{
+    } else {
         listaAlimentos = [];
     }
 }
 
-function actualizarTabla(lista){
+function actualizarTabla(lista) {
     const tabla = document.getElementById("tablaAlimentos");
     const tbody = tabla.getElementsByTagName("tbody")[0];
     tbody.innerHTML = "";
@@ -122,19 +38,23 @@ function actualizarTabla(lista){
         let celda2 = fila.insertCell(1);
         let celda3 = fila.insertCell(2);
         let celda4 = fila.insertCell(3);
+        let celda5 = fila.insertCell(4);
+        let celda6 = fila.insertCell(5);
 
         var botonEliminar = document.createElement("button");
         botonEliminar.classList.add("btn");
         botonEliminar.classList.add("btn-danger");
         botonEliminar.textContent = "Eliminar";
         botonEliminar.addEventListener("click", function () {
-            eliminarElemento(indice-1);
+            eliminarElemento(indice - 1);
         });
 
         celda1.innerHTML = alimento.nombre;
-        celda2.innerHTML = alimento.categoria;
-        celda3.innerHTML = alimento.cantidad;
-        celda4.appendChild(botonEliminar);
+        celda2.innerHTML = alimento.calorias;
+        celda3.innerHTML = alimento.grasas;
+        celda4.innerHTML = alimento.proteinas;
+        celda5.innerHTML = alimento.carbohidratos;
+        celda6.appendChild(botonEliminar);
         indice++;
     });
 }
@@ -143,32 +63,30 @@ function eliminarElemento(indice) {
     listaAlimentos.splice(indice, 1);
     localStorage.setItem("listaAlimentos", JSON.stringify(listaAlimentos));
     actualizarTabla(listaAlimentos);
-    Swal.fire({
-        title: 'Lista actualizada!',
-        text: `Se ha eliminado el alimento correctamente`,
-        icon: 'success',
-        confirmButtonText: 'Entiendo'
-    });
 }
 
 function filtrarTabla(filtro) {
     var filtroLowerCase = filtro.toLowerCase();
     var listaFiltrada = listaAlimentos.filter(function (alimento) {
-        return alimento.nombre.toLowerCase().includes(filtroLowerCase) || alimento.categoria.toLowerCase().includes(filtroLowerCase);
+        return alimento.nombre.toLowerCase().includes(filtroLowerCase);
     });
 
     actualizarTabla(listaFiltrada);
 }
 
-function crearAlimento(){
+function crearAlimento() {
     let nombre = document.getElementById("nombreNuevo");
-    let categoria = document.getElementById("categoriaNuevo");
-    let cantidad = document.getElementById("cantidadNuevo");
+    let proteinas = document.getElementById("proteinasNuevo");
+    let carbohidratos = document.getElementById("carbohidratosNuevo");
+    let calorias = document.getElementById("caloriasNuevo");
+    let grasas = document.getElementById("grasasNuevo");
 
     let alimentoNuevo = {
-        "nombre" : nombre.value,
-        "categoria": categoria.value,
-        "cantidad": cantidad.value
+        "nombre": nombre.value,
+        "proteinas": proteinas.value,
+        "carbohidratos": carbohidratos.value,
+        "calorias": calorias.value,
+        "grasas": grasas.value
     }
 
     listaLocalStorage = localStorage.getItem('listaAlimentos');
@@ -186,3 +104,55 @@ function crearAlimento(){
     });
 }
 
+async function obtenerListaAlimentos() {
+    var listaReturn = [];
+
+    await fetch("https://api.nal.usda.gov/fdc/v1/foods/list?api_key=BIsci4bo3TfQ7zaYYDzwhrpuO6ul6JZv60mmcZWY&dataType=Foundation&pageSize=200")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("La solicitud no se pudo completar correctamente.");
+            }
+            return response.json(); 
+        })
+        .then(data => {
+            console.log("datos", data)
+            const lista = data.map(respuesta => {
+                let calorias = 's/i';
+                let proteinas = 's/i';
+                let grasas = 's/i';
+                let carbohidratos = 's/i';
+
+                respuesta.foodNutrients.filter(nutriente => {
+                    if(nutriente.number == '957' || nutriente.number == '208'){
+                        calorias = nutriente.amount;
+                    }
+
+                    if(nutriente.number == '203'){
+                        proteinas = nutriente.amount;
+                    }
+
+                    if(nutriente.number == '204'){
+                        grasas = nutriente.amount;
+                    }
+
+                    if(nutriente.number == '205'){
+                        carbohidratos = nutriente.amount;
+                    }
+                });
+
+                return {
+                    nombre: respuesta.description,
+                    calorias: calorias,
+                    proteinas: proteinas,
+                    carbohidratos: carbohidratos,
+                    grasas: grasas
+                };
+            });
+            listaReturn = lista;
+        })
+        .catch(error => {
+            console.error("Se produjo un error en la solicitud:", error);
+        });
+
+    return listaReturn;
+}
